@@ -2,6 +2,8 @@ package meu_salario;
 import java.util.Locale;
 import java.util.Scanner;
 
+	// Pesquisar -> https://www.guj.com.br/t/calcular-horas-dentro-de-um-list/83565/5
+
 public class Salary {
 
 	public static void main(String[] args) {
