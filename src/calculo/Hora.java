@@ -3,7 +3,7 @@ package calculo;
 import java.util.Calendar;
 
 public class Hora {
-	
+		
 	int hours;
 	int minute;
 	int second;
@@ -12,7 +12,20 @@ public class Hora {
 		this.hours = hours;
 		this.minute = minute;
 		this.second = second;
+	
+	}
+	
+	private static Hora getDif(long totalHours) {
+		int timeInSeconds = (int) totalHours / 1000;
+		int hours, minutes, seconds;
+		hours = timeInSeconds / 3600;
+		timeInSeconds = timeInSeconds - (hours * 3600);
+		minutes = timeInSeconds / 60;
+		timeInSeconds = timeInSeconds - (minutes * 60);
+		seconds = timeInSeconds;
 		
+		Hora hora = new Hora(hours, minutes, seconds);
+		return hora;
 	}
 	
 	public int getHours() {
@@ -50,5 +63,6 @@ public class Hora {
 		c.add(Calendar.SECOND, hora.second);
 		
 		return c;
+	
 	}
 }

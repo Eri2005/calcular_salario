@@ -1,12 +1,23 @@
 package meu_salario;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Locale;
 import java.util.Scanner;
+
+import calculo.Hora;
 
 	// Pesquisar -> https://www.guj.com.br/t/calcular-horas-dentro-de-um-list/83565/5
 
 public class Salary {
 
 	public static void main(String[] args) {
+		
+		SimpleDateFormat FORMAT = new SimpleDateFormat("HH:mm:ss");
+		Calendar entrance = Calendar.getInstance();
+		Calendar initialRest = Calendar.getInstance();
+		Calendar finalRest = Calendar.getInstance();
+		Calendar finalWork = Calendar.getInstance();
+		
 		Locale.setDefault(Locale.US);
 		Scanner scan = new Scanner(System.in);
 
@@ -14,10 +25,12 @@ public class Salary {
 		double salario = scan.nextDouble();
 
 		System.out.println("HORA DA ENTRADA:");
-		int horaInicial = scan.nextInt();
+		//int horaInicial = scan.nextInt();
+		entrance.setTime(FORMAT.parse(scan.next()));
 
 		System.out.println("HORA DA SAIDA: ");
-		int horaFinal = scan.nextInt();
+		//int horaFinal = scan.nextInt();
+		finalWork.setTime(FORMAT.parse(scan.next()));
 
 		System.out.println("MINUTOS: ");
 		int minuto = scan.nextInt();
@@ -42,7 +55,9 @@ public class Salary {
 		int horasExtra, horasTrab, totalHoras, menosHorasTrabalhada = 0, horasCemPorcento, totalHorasExtra;
 		double horasTotal = 0, totalCemPorcento = 0, valorTotal, menosHorasPagar;
 
-		totalHoras = horaFinal - horaInicial;
+		//totalHoras = finalWork - entrance;
+		long totalHours = finalWork.getTimeInMillis() - entrance.getTimeInMillis();
+		Hora hora = getDif(totalHours);
 
 		horasExtra = totalHoras - 8;
 		totalHorasExtra = horasExtra * dia;
@@ -91,8 +106,8 @@ public class Salary {
 		System.out.println("DADOS REFERENTE A " + dia + " DIA(S)");
 		System.out.println(scan.nextLine());
 
-		if (horaInicial > horaFinal) {
-			totalHoras = horaInicial - horaFinal;
+		if (entrance.getTimeInMillis() > finalWork.getTimeInMillis()) {
+			totalHoras = entrance.getTimeInMillis() - finalWork.getTimeInMillis();
 
 			System.out.println("TOTAL DE HORAS = " + totalHoras + " Horas");
 
