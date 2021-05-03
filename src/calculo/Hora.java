@@ -4,65 +4,112 @@ import java.util.Calendar;
 
 public class Hora {
 		
-	int hours;
-	int minute;
-	int second;
-	public Hora(int hours, int minute, int second) {
+	private Double salary;
+	private Integer entrance;
+	private Integer initialMinute;
+	private Integer entranceLunch;
+	private Integer minuteLunch;
+	private Integer returnLunch;
+	private Integer finalLunch;
+	private Integer finalWork;
+	private Integer finalMinute;
+	
+	
+	public Hora(Double salary, Integer entrance, Integer initialMinute, Integer entranceLunch, Integer minuteLunch,
+			Integer returnLunch, Integer finalLunch, Integer finalWork, Integer finalMinute) {
 		super();
-		this.hours = hours;
-		this.minute = minute;
-		this.second = second;
-	
+		this.salary = salary;
+		this.entrance = entrance;
+		this.initialMinute = initialMinute;
+		this.entranceLunch = entranceLunch;
+		this.minuteLunch = minuteLunch;
+		this.returnLunch = returnLunch;
+		this.finalLunch = finalLunch;
+		this.finalWork = finalWork;
+		this.finalMinute = finalMinute;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
+
+	public Integer getEntrance() {
+		return entrance;
+	}
+
+	public void setEntrance(Integer entrance) {
+		this.entrance = entrance;
+	}
+
+	public Integer getInitialMinute() {
+		return initialMinute;
+	}
+
+	public void setInitialMinute(Integer initialMinute) {
+		this.initialMinute = initialMinute;
+	}
+
+	public Integer getEntranceLunch() {
+		return entranceLunch;
+	}
+
+	public void setEntranceLunch(Integer entranceLunch) {
+		this.entranceLunch = entranceLunch;
+	}
+
+	public Integer getMinuteLunch() {
+		return minuteLunch;
+	}
+
+	public void setMinuteLunch(Integer minuteLunch) {
+		this.minuteLunch = minuteLunch;
+	}
+
+	public Integer getReturnLunch() {
+		return returnLunch;
+	}
+
+	public void setReturnLunch(Integer returnLunch) {
+		this.returnLunch = returnLunch;
+	}
+
+	public Integer getFinalLunch() {
+		return finalLunch;
+	}
+
+	public void setFinalLunch(Integer finalLunch) {
+		this.finalLunch = finalLunch;
+	}
+
+	public Integer getFinalWork() {
+		return finalWork;
+	}
+
+	public void setFinalWork(Integer finalWork) {
+		this.finalWork = finalWork;
+	}
+
+	public Integer getFinalMinute() {
+		return finalMinute;
+	}
+
+	public void setFinalMinute(Integer finalMinute) {
+		this.finalMinute = finalMinute;
 	}
 	
-	private static Hora getDif(long totalHours) {
-		int timeInSeconds = (int) totalHours / 1000;
-		int hours, minutes, seconds;
-		hours = timeInSeconds / 3600;
-		timeInSeconds = timeInSeconds - (hours * 3600);
-		minutes = timeInSeconds / 60;
-		timeInSeconds = timeInSeconds - (minutes * 60);
-		seconds = timeInSeconds;
-		
-		Hora hora = new Hora(hours, minutes, seconds);
-		return hora;
+	public void calValueDay(double cal) {
+		double valueDay = salary / 30;
 	}
 	
-	public int getHours() {
-		return hours;
+	public void calValueHour(double hour) {
+		double valueHour = salary / 220;
 	}
 	
-	public void setHours(int hours) {
-		this.hours = hours;
-	}
-	
-	public int getMinute() {
-		return minute;
-	}
-	
-	public void setMinute(int minute) {
-		this.minute = minute;
-	}
-	
-	public int getSecond() {
-		return second;
-	}
-	
-	public void setSecond(int second) {
-		this.second = second;
-	}
-	
-	public Calendar t (Hora hora) {
-		Calendar c = Calendar.getInstance();
-		c.set(Calendar.HOUR_OF_DAY, hours);
-		c.set(Calendar.MINUTE, minute);
-		c.set(Calendar.SECOND, second);
-		
-		c.add(Calendar.HOUR_OF_DAY, hora.hours);
-		c.add(Calendar.MINUTE, hora.minute);
-		c.add(Calendar.SECOND, hora.second);
-		
-		return c;
-	
+	public void calValueMinute(double minute) {
+		double valueMinute = valueHour / 60;
 	}
 }
