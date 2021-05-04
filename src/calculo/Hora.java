@@ -1,32 +1,25 @@
 package calculo;
 
-import java.util.Calendar;
-
 public class Hora {
-		
-	private Double salary;
-	private Integer entrance;
-	private Integer initialMinute;
-	private Integer entranceLunch;
-	private Integer minuteLunch;
-	private Integer returnLunch;
-	private Integer finalLunch;
-	private Integer finalWork;
-	private Integer finalMinute;
-	
-	
-	public Hora(Double salary, Integer entrance, Integer initialMinute, Integer entranceLunch, Integer minuteLunch,
-			Integer returnLunch, Integer finalLunch, Integer finalWork, Integer finalMinute) {
+
+	public Double salary;
+	private Double hoursExtra;
+	private Double totalHoursExtra;
+	private Double dayWorked;
+	private Double valueDay;
+	private Double valueHour;
+	private Double valueMinute;
+
+	public Hora(Double salary, Double hoursExtra, Double totalHoursExtra, Double dayWorked, Double valueDay,
+			Double valueHour, Double valueMinute) {
 		super();
 		this.salary = salary;
-		this.entrance = entrance;
-		this.initialMinute = initialMinute;
-		this.entranceLunch = entranceLunch;
-		this.minuteLunch = minuteLunch;
-		this.returnLunch = returnLunch;
-		this.finalLunch = finalLunch;
-		this.finalWork = finalWork;
-		this.finalMinute = finalMinute;
+		this.hoursExtra = hoursExtra;
+		this.totalHoursExtra = totalHoursExtra;
+		this.dayWorked = dayWorked;
+		this.valueDay = valueDay;
+		this.valueHour = valueHour;
+		this.valueMinute = valueMinute;
 	}
 
 	public Double getSalary() {
@@ -37,79 +30,64 @@ public class Hora {
 		this.salary = salary;
 	}
 
-	public Integer getEntrance() {
-		return entrance;
+	public Double getHoursExtra() {
+		return hoursExtra;
 	}
 
-	public void setEntrance(Integer entrance) {
-		this.entrance = entrance;
+	public void setHoursExtra(Double hoursExtra) {
+		this.hoursExtra = hoursExtra;
 	}
 
-	public Integer getInitialMinute() {
-		return initialMinute;
+	public Double getTotalHoursExtra() {
+		return totalHoursExtra;
 	}
 
-	public void setInitialMinute(Integer initialMinute) {
-		this.initialMinute = initialMinute;
+	public void setTotalHoursExtra(Double totalHoursExtra) {
+		this.totalHoursExtra = totalHoursExtra;
 	}
 
-	public Integer getEntranceLunch() {
-		return entranceLunch;
+	public Double getDayWorked() {
+		return dayWorked;
 	}
 
-	public void setEntranceLunch(Integer entranceLunch) {
-		this.entranceLunch = entranceLunch;
+	public void setDayWorked(Double dayWorked) {
+		this.dayWorked = dayWorked;
 	}
 
-	public Integer getMinuteLunch() {
-		return minuteLunch;
+	public Double getValueDay() {
+		return valueDay;
 	}
 
-	public void setMinuteLunch(Integer minuteLunch) {
-		this.minuteLunch = minuteLunch;
+	public void setValueDay(Double valueDay) {
+		this.valueDay = valueDay;
 	}
 
-	public Integer getReturnLunch() {
-		return returnLunch;
+	public Double getValueHour() {
+		return valueHour;
 	}
 
-	public void setReturnLunch(Integer returnLunch) {
-		this.returnLunch = returnLunch;
+	public void setValueHour(Double valueHour) {
+		this.valueHour = valueHour;
 	}
 
-	public Integer getFinalLunch() {
-		return finalLunch;
+	public Double getValueMinute() {
+		return valueMinute;
 	}
 
-	public void setFinalLunch(Integer finalLunch) {
-		this.finalLunch = finalLunch;
+	public void setValueMinute(Double valueMinute) {
+		this.valueMinute = valueMinute;
 	}
 
-	public Integer getFinalWork() {
-		return finalWork;
+	public void calDay(Double valueDay) {
+		valueDay = salary / 30;
 	}
 
-	public void setFinalWork(Integer finalWork) {
-		this.finalWork = finalWork;
+	public void calHours(Double valueHour) {
+		valueHour = salary / 220;
 	}
 
-	public Integer getFinalMinute() {
-		return finalMinute;
+	public void calMinutes(Double valueMinute) {
+		valueMinute = valueHour / 60;
 	}
 
-	public void setFinalMinute(Integer finalMinute) {
-		this.finalMinute = finalMinute;
-	}
-	
-	public void calValueDay(double cal) {
-		double valueDay = salary / 30;
-	}
-	
-	public void calValueHour(double hour) {
-		double valueHour = salary / 220;
-	}
-	
-	public void calValueMinute(double minute) {
-		double valueMinute = valueHour / 60;
-	}
 }
