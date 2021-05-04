@@ -24,14 +24,16 @@ public class Salary {
 
 		System.out.println("HORA DA ENTRADA:");
 		String entrance = scan.next();
+		//scan.nextLine();
 		//Date entrance1 = spf.parse(entrance);
 		
-		//System.out.println("HORA DA ENTRADA DO ALMOÇO:");
-		//String entranceLunch = scan.next();
+		System.out.println("HORA DA ENTRADA DO ALMOÇO:");
+		String entranceLunch = scan.next();
 		//Date entranceLunch1 = spf.parse(entranceLunch);
 		
-		//System.out.println("HORA DO RETORNO DO ALMOÇO: ");
-		//String returnLunch = scan.next();
+		System.out.println("HORA DO RETORNO DO ALMOÇO: ");
+		String returnLunch = scan.next();
+		//scan.nextLine();
 		//Date returnLunch1 = spf.parse(entranceLunch);
 
 		System.out.println("HORA DA SAIDA: ");
@@ -46,14 +48,14 @@ public class Salary {
 		
 		Date entrance1 = null;
 		Date finalWork1 = null;
-		//Date entranceLunch1 = null;
-		//Date returnLunch1 = null;
+		Date entranceLunch1 = null;
+		Date returnLunch1 = null;
 		
 		try {
 			entrance1 = spf.parse(entrance);
 			finalWork1 = spf.parse(finalWork);
-			//entranceLunch1 = spf.parse(entranceLunch);
-			//returnLunch1 = spf.parse(returnLunch);
+			entranceLunch1 = spf.parse(entranceLunch);
+			returnLunch1 = spf.parse(returnLunch);
 		}catch (ParseException e){
 			e.printStackTrace();
 		}
@@ -62,9 +64,9 @@ public class Salary {
 		Long diffHours = diffWork / (60 * 60 * 1000);
 		Long diffMinutes = diffWork / (60 * 1000) % 60;
 		
-		//long diffLunch = returnLunch1.getTime() - entranceLunch1.getTime();
-		//Long differHours = diffLunch / (60 * 60 * 1000);
-		//Long differMinutes = diffLunch / (60 * 1000) % 60;
+		long diffLunch = returnLunch1.getTime() - entranceLunch1.getTime();
+		Long differHours = diffLunch / (60 * 60 * 1000);
+		Long differMinutes = diffLunch / (60 * 1000) % 60;
 		
 		//Long totalHours = ((finalWork1.getTime() - entrance1.getTime()) / 3600) / 1000;
 		
@@ -85,7 +87,8 @@ public class Salary {
 		double horasTrab = diffHours - 8;
 		double totalCemPorcento = horasTrab * valorHorasCemPorcento;
 		
-		System.out.println("TOTAL DE HORAS TRABALHADA: " + diffHours + "H:" + diffMinutes+ "m");
+		System.out.println("TOTAL DE HORAS TRABALHADA: " + diffHours + "H:" + diffMinutes + "m");
+		System.out.println("TEMPO DE DESCANSO: " + differHours + "H:" + differMinutes + "m");
 		System.out.printf("VALOR DA HORA = R$ %.2f%n", valueHours);
 		System.out.printf("VALOR DO DIA = R$ %.2f%n", valueDay);
 		System.out.printf("VALOR TOTAL DOS DIAS TRABALHADOS: R$ %.2f%n", dayWorked);
@@ -93,7 +96,7 @@ public class Salary {
 
 
 		System.out.println("DADOS REFERENTE A " + day + " DIA(S)");
-		System.out.println(scan.nextLine());
+		System.out.println();
 
 		if (diffHours > 8) {
 
